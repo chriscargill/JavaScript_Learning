@@ -1,0 +1,2 @@
+# Python to JavaScript
+### I plan on using this to learn javascript. Most of this will not be neatly organized code. It's mroe of a spray and pray approach to coding rather than neatly organized. Though I will end up taking concepts of these things and utlizing them in other code in a more clean fashion.
