@@ -13,14 +13,24 @@ if (userInput.toLocaleLowerCase().includes("bull")) {
     alert(coolString);
 }
 </script>
+<script>
+    // For objects that are json serializable use the tojson filter
+    // The incoming json data is passed into this variable
+    var js_data = {{data|tojson}};
+    for (v in js_data) {
+        greet_msg = "Hi " + js_data[v]['name'] + " from js";
+        console.log(greet_msg);
+        var tag = document.createElement("li");
+        var text = document.createTextNode(greet_msg);
+        tag.appendChild(text);
+        var element = document.getElementById("1337"); // This id can be found on the file base.html
+        element.appendChild(tag);
+    }
+    </script>
 {% for k,v in data.items() %}
     {% for sk, sv in v.items()%}
         {% if sk=='name' %}
-            Hi {{sv}}
-            <script>
-            var jinja_test = '{{sv}}';
-            console.log(jinja_test);
-            </script>
+            <li>Hi {{sv}} from Jinja</li>
         {% endif %}
     {% endfor %}
 {% endfor %}
