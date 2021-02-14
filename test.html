@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<script>
+// TEXT
+const hello = "hio";
+console.log(hello);
+const friend = `${hello} friend`;
+console.log(friend);
+friendsList = ["Jack", "Sabrina", "Kacey", "Ryan", "Dillon"];
+for (person in friendsList) {
+    console.log(friendsList[person]);
+}
+
+console.log(Object.getOwnPropertyNames(friendsList));
+friendsList.pop();
+console.log(friendsList);
+// MATH
+const myNum = 10.4;
+const up = Math.ceil(myNum);
+const down = Math.floor(myNum);
+const round = Math.round(myNum);
+console.log(up,down,round);
+const myNumSquared = Math.pow(myNum, 2);
+console.log(myNumSquared);
+
+// POPUPS
+const alertMessage = alert("Welcome to the website my mando!");
+const userInput = prompt("What is your name friend?");
+if (userInput.toLocaleLowerCase().includes("bull")) {
+    const coolString = `${userInput}, you are most welcome here you man of vigor!`;
+    alert(coolString);
+} else {
+    const coolString = `${userInput}, you are most welcome here!`;
+    alert(coolString);
+}
+
+// Conversion
+
+const ab = '10.55';
+const a1 = 10;
+console.log(ab, a1);
+const num = Number(ab) + a1;
+const lett = ab + String(a1);
+console.log(lett);
+console.log(num);
+
+// LOOPING THROUGH DICTIONARY
+const mydict = {chris: 31, marie: 35, gyasi: 37, kasinda: 34, kellen: 27};
+console.log(mydict);
+let myNums = [];
+for (person in mydict) {
+    console.log(mydict[person]);
+    myNums.push(mydict[person]);
+}
+
+// CREATING A USEFUL FUNCTION
+function getAverage(myNums){
+    let myTotals = 0;
+    const numsLen = myNums.length;
+    console.log(`nums length is: ${numsLen}`);
+    for (number in myNums) {
+        myTotals += myNums[number];
+    }
+    console.log(`Totals: ${myTotals}`);
+    myTotals = myTotals / numsLen;
+    console.log(`Average: ${myTotals}`);
+    console.log(`All the args!: ${arguments}`);
+    return myTotals;
+}
+
+function getAverages(){
+    let myTotals = 0;
+    const numsLen = arguments.length;
+    console.log(`nums length is: ${numsLen}`);
+    for (number in arguments) {
+        myTotals += Number(arguments[number]);
+    }
+    console.log(`Totals: ${myTotals}`);
+    myTotals = myTotals / numsLen;
+    console.log(`Average: ${myTotals}`);
+    console.log(`All the args!: ${arguments}`);
+    return myTotals;
+}
+
+function parseArgs(){
+    argLen = arguments.length;
+    for (eachArg in arguments) {
+        console.log(`Type of arg ${eachArg}: ${typeof(arguments[eachArg])}`);
+        if (typeof(arguments[eachArg]) == 'boolean') {
+            console.log("You are black and white");
+        } else if (typeof(arguments[eachArg]) == 'string') {
+            console.log("You are wordy!");
+        } else if (typeof(arguments[eachArg]) == 'number') {
+            console.log("Mathematician on Deck!");
+        }
+
+    }
+}
+getAverages(10,13,17,19,21);
+// getAverage(myNums);
+
+// BOOK PRACTICE JS TO HTML
+let header = "<h1>Header</h1>";
+console.log(header);
+const headerTitle = "New Title";
+console.log(headerTitle);
+const demoHeader = `<h1>${headerTitle}</h1>`; 
+console.log(demoHeader);
+
+// FUNCTIONS - All functions return a value
+function test() {
+    console.log("My mans!");
+    console.log("Doing the work!!! Get Busy you sluggards!");
+    return 200;
+}
+test();
+ace = test();
+console.log(ace);
+
+// console.log(getAverage([10,11,12,13,14,15,16,17,18,19,20]));
+
+// ARROW FUNCTIONS
+const myCoolFunction = ( myCoolParams ) => {
+    console.log(`Here are the sweet params: ${myCoolParams}`);
+    console.log(myCoolParams[1]);
+    return 200;
+}
+const ten = myCoolFunction("blue", "green", 1337);
+parseArgs(false,true,"ten","boom",3);
+</script>
+</head>
+<body>
+    <h1>HI $(userInput)</h1>
+
+</body>
+</html>
