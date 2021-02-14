@@ -1,0 +1,30 @@
+
+{% extends 'base.html' %}
+{% block bodyblock %}
+HELLO
+<script>
+const alertMessage = alert("Welcome to the website my mando!");
+const userInput = prompt("What is your name friend?");
+if (userInput.toLocaleLowerCase().includes("bull")) {
+    const coolString = `${userInput}, you are most welcome here you man of vigor!`;
+    alert(coolString);
+} else {
+    const coolString = `${userInput}, you are most welcome here!`;
+    alert(coolString);
+}
+</script>
+{% for k,v in data.items() %}
+    {% for sk, sv in v.items()%}
+        {% if sk=='name' %}
+            Hi {{sv}}
+            <script>
+            var jinja_test = '{{sv}}';
+            console.log(jinja_test);
+            </script>
+        {% endif %}
+    {% endfor %}
+{% endfor %}
+
+<!-- Passing jinja values to Javascript -->
+<script></script>
+{% endblock bodyblock %}
