@@ -47,4 +47,12 @@ if (userInput.toLocaleLowerCase().includes("bull")) {
 <!-- This button is using the hello() found in /static/js/test.js -->
 <button type="button" onclick="hello('button')">Click Me!</button>
 <li onclick="hello('list')">HELLO</li>
+<div id='p2'>DIVISION</div>
+
+<script> // Directly chaning the css through the javascript
+    script_div = document.getElementById("p2");
+    script_div.style.color = "green";
+    script_div.style.backgroundColor = "yellow";
+    script_div.style.fontSize = '30px';
+</script>
 {% endblock last %}
