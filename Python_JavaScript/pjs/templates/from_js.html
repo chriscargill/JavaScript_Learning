@@ -1,10 +1,10 @@
 
 {% extends 'base.html' %}
 {% block bodyblock %}
-<script> document.body.style.backgroundColor = "red";</script>
+<script> document.body.style.backgroundColor = "blue"; console.log("blue");</script>
 HELLO
 <script>
-const alertMessage = alert("Welcome to the website my mando!");
+const alertMessage = alert('Welcome to the website my dude!');
 const userInput = prompt("What is your name friend?");
 if (userInput.toLocaleLowerCase().includes("bull")) {
     const coolString = `${userInput}, you are most welcome here you man of vigor!`;
@@ -39,3 +39,12 @@ if (userInput.toLocaleLowerCase().includes("bull")) {
 <!-- Passing jinja values to Javascript -->
 <script></script>
 {% endblock bodyblock %}
+
+{% block last %}
+<script>
+    console.log(me);
+</script>
+<!-- This button is using the hello() found in /static/js/test.js -->
+<button type="button" onclick="hello('button')">Click Me!</button>
+<li onclick="hello('list')">HELLO</li>
+{% endblock last %}

@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{title}}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    {% if ip %}
+        <title>{{title}} / {{ip}}</title>
+    {% else %}
+        <title>{{title}}</title>
+    {% endif %}
 </head>
 <body>
     <div id=1337>
-    <script> document.body.style.backgroundColor = "red";</script>
     {% block bodyblock %}
     {% endblock bodyblock %}
     </div>
+    <script type= "text/javascript" src="/static/js/test.js"></script>
+    {% block last %}
+    {% endblock last %}
 </body>
 </html>
