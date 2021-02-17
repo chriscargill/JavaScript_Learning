@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block bodyblock %}
+{% if status == 'GET' %}
+    <div class="content-session">
+        <form method="POST" action="/add">
+            {{ form.csrf_token }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Add an event</legend>
+
+                <div class="form-group"> <!-- What -->
+                    {{ form.What.label(class="form-control-label") }}
+                    {{ form.What(class="form-control form-control-lg") }}
+                </div>
+                <br>
+                <div class="form-group"> <!-- When -->
+                    {{ form.When.label(class="form-control-label") }}
+                    {{ form.When(class="form-control form-control-lg") }}
+                </div>
+                <br>
+                <div class="form-group"> <!-- Where -->
+                    {{ form.Where.label(class="form-control-label") }}
+                    {{ form.Where(class="form-control form-control-lg") }}
+                </div>
+                <br>
+                <div class="form-group"> <!-- Who -->
+                    {{ form.Who.label(class="form-control-label") }}
+                    {{ form.Who(class="form-control form-control-lg") }}
+                </div>
+                <br>
+                <div class="form-group"> <!-- Why -->
+                    {{ form.Why.label(class="form-control-label") }}
+                    {{ form.Why(class="form-control form-control-lg") }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+{% elif status == 'POST' %}
+Thanks for adding data!<br>
+{{data|tojson}}
+{% endif %}
+
+
+{% endblock bodyblock %}
