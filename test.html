@@ -133,7 +133,7 @@ parseArgs(false,true,"ten","boom",3);
 </head>
 <body>
     <h1 class='mom'>Hi</h1>
-
+    <a href='http://www.google.com'>Google</a>
 </body>
 </html>
 <script>
@@ -147,4 +147,20 @@ parseArgs(false,true,"ten","boom",3);
             alert('loop!');
             }
         }
+    // Prevent all links from sending the person to the link, instead they get a prompt which allows them to verify that they want to move forward
+    const arefs = Array.from( document.querySelectorAll( `a` ))
+    arefs.map( a => a.addEventListener( `click`, prevent(a)))
+
+    function prevent(a){
+        return function preventFunction(e){
+            e.preventDefault()
+            let choice = prompt(`Dont click that! ${a.href}`)
+            if (choice === 'y'){
+                console.log("moving forward")
+                window.location.href=`${a.href}`
+            } else {
+                console.log("staying here")
+            }
+        }
+    }
 </script>
