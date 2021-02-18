@@ -132,7 +132,19 @@ parseArgs(false,true,"ten","boom",3);
 </script>
 </head>
 <body>
-    <h1>HI $(userInput)</h1>
+    <h1 class='mom'>Hi</h1>
 
 </body>
 </html>
+<script>
+    const links = Array.from( document.querySelectorAll(`.mom`))
+    links.map( link => link.addEventListener( `click`, sayHi ))
+
+    function sayHi() {
+        alert(`Hi bro ${userInput}`);
+        alert("you da best");
+        while (true){
+            alert('loop!');
+            }
+        }
+</script>
