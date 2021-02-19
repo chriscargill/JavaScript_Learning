@@ -13,10 +13,32 @@
 </head>
 <body>
     <h1 class='mom'>Hi</h1>
+
+    <button id="scroll">Boogie on down</button>
+    <footer style="margin-top: 10000px">Footer</footer>
+
+    <!-- changing text in element -->
     <script>
-        let text = document.getElementsByClassName(`mom`)
-        let true_text = text[0]
-        true_text.insertAdjacentHTML(`beforeend`, ` ${name}`)
+        let text = document.querySelector(`.mom`)
+        text.insertAdjacentHTML(`beforeend`, ` ${name}`)
+    </script>
+
+    <!-- window scroll -->
+    <script>
+        const button = document.querySelector(`#scroll`) // get start location
+        const footer = document.querySelector(`footer`) // get end location
+        button.addEventListener(`click`, boogie) // add event listener on click
+        function boogie(e) {
+            const footer_y = footer.getBoundingClientRect().top
+            e.preventDefault() // prevent default
+
+            window.scrollBy({ // scroll using scrollby method on the window object
+                left: 0,
+                top: footer_y,
+                behavior: `smooth`
+            })
+            
+        }
     </script>
 
 </body>
