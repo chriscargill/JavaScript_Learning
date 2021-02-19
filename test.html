@@ -179,5 +179,42 @@ parseArgs(false,true,"ten","boom",3);
         }
     </script>
 
+    <h1 class='mom'>Hi</h1>
+    <a href='http://www.google.com'>Google</a>
 </body>
 </html>
+<script>
+    const links = Array.from( document.querySelectorAll(`.mom`))
+    links.map( link => {
+        link.addEventListener( `click`, sayHi ); 
+        link.addEventListener( `copy`, report(link) );
+    })
+
+    function sayHi() {
+        alert(`Hi bro ${userInput}`);
+        }
+
+    function report(a) { // Prevents users from copying anything you don't want them to copy
+        return function checkCopy(e){
+            e.preventDefault()
+            console.log(`${a} was copied`);
+            alert("Caught you copying my stuffz!")
+        }
+    }
+    // Prevent all links from sending the person to the link, instead they get a prompt which allows them to verify that they want to move forward
+    const arefs = Array.from( document.querySelectorAll( `a` ))
+    arefs.map( a => a.addEventListener( `click`, prevent(a)))
+
+    function prevent(a){
+        return function preventFunction(e){
+            e.preventDefault()
+            let choice = prompt(`Dont click that! ${a.href}`)
+            if (choice === 'y'){
+                console.log("moving forward")
+                window.location.href=`${a.href}`
+            } else {
+                console.log("staying here")
+            }
+        }
+    }
+</script>

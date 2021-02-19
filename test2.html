@@ -1,0 +1,23 @@
+<!DOCTYPE html encoding='utf-8'>
+<html lang='en'>
+<head>
+    <meta charset="utf-8"/>
+    <title class=title>Welcome</title>
+    <script>
+        let name = prompt("Who goes there?")
+        let title_class = document.getElementsByClassName('title')
+        let title = title_class[0]
+        title.insertAdjacentHTML(`beforeend`,` ${name}`)
+        // title_class[0]
+    </script>
+</head>
+<body>
+    <h1 class='mom'>Hi</h1>
+    <script>
+        let text = document.getElementsByClassName(`mom`)
+        let true_text = text[0]
+        true_text.insertAdjacentHTML(`beforeend`, ` ${name}`)
+    </script>
+
+</body>
+</html>
