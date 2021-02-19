@@ -39,6 +39,12 @@ def AddRoute():
                 when = form.When.data
                 where = form.Where.data
                 why = form.Why.data
+                nick = form.nickName.data
+                print(f"NICK: {nick}")
+                if nick != "":
+                    print("passing")
+                else:
+                    print("Registering")
                 print(who,what,when,where,why)
                 conn = connect_to_db() # All this function does is connect to a postgres database and return the connected database object. You'll have to implement your own function to do the same thing as I haven't included it in the git
                 cursor = conn.cursor()
@@ -63,6 +69,9 @@ def AddRoute():
                 data = {'who': who, 'what': what, 'when': when, 'where': where, 'why': why}
             except Exception as e:
                 data = None
-        return render_template('add.html', title='Let everyone know', status='POST', data=data)
+            finally:
+                return render_template('add.html', title='Let everyone know', status='POST', data=data)
+        else:
+            return render_template('add.html', title="Let everyone know", status='GET', form=form)
     else:
         return None

@@ -133,6 +133,51 @@ parseArgs(false,true,"ten","boom",3);
 </head>
 <body>
     <h1>HI $(userInput)</h1>
+    <video controls> <!-- Create a video element-->
+        <source src="" type="video/mp4" width="520" height="200" controls="true" />
+    </video>
+    <p>
+        <input id="play" type="submit" value="Play" />
+        <input id="pause" type="submit" value="Pause" />
+        <input id="restart" type="submit" value="Go to the Beginning" />
+        <input id="skip-forward" type="submit" value="Go Forward 10 Seconds" />
+        Timestamp: <span id="timestamp">0:00</span>
+    </p>
+    <script>
+        const video = document.querySelector('video')
+        const playButton = document.getElementById('play')
+        const pauseButton = document.getElementById('pause')
+        const restartButton = document.getElementById('restart')
+        const forwardButton = document.getElementById('skip-forward')
+        let timestamp = document.getElementById('timestamp')
+
+        video.addEventListener(`timeupdate`, updateTimestamp)
+        playButton.addEventListener(`click`, playVideo)
+        pauseButton.addEventListener(`click`, pauseVideo)
+        restartButton.addEventListener(`click`, restartVideo)
+        forwardButton.addEventListener(`click`, skipForward)
+
+        function playVideo(){
+            video.play()
+            console.log(`Playing video`)
+        }
+
+        function pauseVideo(){
+            video.pause()
+        }
+
+        function restartVideo(){
+            video.currentTime = 0
+        }
+
+        function skipForward(){
+            video.currentTime = video.currentTime + 10
+        }
+
+        function updateTimestamp(){
+            timestamp.innerHTML = parseInt(video.currentTime)
+        }
+    </script>
 
 </body>
 </html>
