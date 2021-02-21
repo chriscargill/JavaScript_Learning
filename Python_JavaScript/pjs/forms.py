@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField, validators
+from wtforms import HiddenField, StringField, PasswordField, SubmitField, BooleanField, validators
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 
 class AddForm(FlaskForm):
@@ -12,5 +12,7 @@ class AddForm(FlaskForm):
     Where = StringField('Where', validators=[DataRequired()])
 
     Why = StringField('Why', validators=[DataRequired()])
+    
+    nickName = HiddenField('Nick name')
 
     submit = SubmitField('Let Everyone Know')  

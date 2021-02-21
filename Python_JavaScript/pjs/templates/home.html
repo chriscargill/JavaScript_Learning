@@ -35,6 +35,17 @@ if (userInput.toLocaleLowerCase().includes("bull")) {
         {% endif %}
     {% endfor %}
 {% endfor %}
+<video controls> <!-- Create a video element-->
+    <source src="{{ url_for('static', filename='video/movie.mp4')}}" type="video/mp4" width="520" height="200" />
+</video>
+<p>
+    <input id="play" type="submit" value="Play" />
+    <input id="pause" type="submit" value="Pause" />
+    <input id="restart" type="submit" value="Go to the Beginning" />
+    <input id="skip-forward" type="submit" value="Go Forward 10 Seconds" />
+    Timestamp: <span id="timestamp">0:00</span>
+</p>
+<script type= "text/javascript" src="/static/js/media.js"></script>
 
 <!-- Passing jinja values to Javascript -->
 <script></script>
